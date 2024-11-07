@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Código HTML Footer Congresos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Generador de Código HTML Footer Congresos</h2>
+    
+    <label for="correoCongreso">Correo del Congreso:</label>
+    <input type="text" id="correoCongreso" placeholder="Ingrese el correo del congreso">
+
+    <label for="webCongreso">Web del Congreso:</label>
+    <input type="text" id="webCongreso" placeholder="Ingrese la web del congreso">
+
+    <h3>Código HTML Generado:</h3>
+    <textarea id="outputHTML" readonly></textarea>
+    
+    <button onclick="copiarCodigo()">Copiar Código</button>
+
+    <script>
+        // Código base HTML a personalizar
+        const baseHTML = `
+        <span style="font-size: 10px; color: #8f8f8f">
+            <p class="MsoNormal" style="text-align: left; margin: 0cm 0cm 0pt; line-height: normal" align="left">
+            <br /></p>
+            <p class="MsoNormal" style="text-align: left; margin: 0cm 0cm 0pt; line-height: normal" align="left">
+            <table align="center">
+            <tbody>
+            <tr>
+            <td>
+            <p align="left"><img alt="" src="https://az659834.vo.msecnd.net/eventsairwesteuprod/production-barcelo-public/0da38858f4df42b2b46f50bb97cea192" width="160" height="116" /></p></td>
+            <td><strong>&nbsp;&nbsp;&nbsp;</strong></td>
+            <td><span style="font-size: 9pt; font-family: Century Gothic; color: #808080"><span style="color: #000000"><span style="color: #000000"><span style="color: #808080"><strong>Agencia Organizadora</strong></span><br /><span style="color: #808080">Plaça Europa,&nbsp;17-19&nbsp;1ª Planta</span><br /><span style="color: #808080">08908&nbsp;L´Hospitalet de Llobregat<br />Barcelona (España)</span><br /></span><span style="color: #808080">T. +34 938 82 38 78</span><br /></span><a href="mailto:congresolactancia2019@bcocongresos.com" id="correoCongresoTag">congresolactancia2019@bcocongresos.com</a><br /><a href="http://www.congresolactancia2019.org/" id="webCongresoTag">www.congresolactancia2019.org</a></span></td></tr></tbody></table><br />
+            <span style="font-family: Century Gothic">
+            <p><span style="font-size: 9pt"><em style="box-sizing: border-box"><span style="font-size: 8pt"><a class="dhtgD" style="box-sizing: border-box; text-decoration: none; border-bottom: rgb(85,120,220) 1px solid; font-weight: 700; color: " href="https://barcelo.eventsair.com/bcocongreso-master/politicasprivacidad" target="_blank"><em style="box-sizing: border-box">
+            <p class="MsoNormal" style="margin: 0cm 0cm 0pt; line-height: normal" align="center" />POLÍTICA DE PRIVACIDAD</em></a></span></em></span></span></span>
+            <p align="center"><br class="Apple-interchange-newline" /></p>
+        </span>`;
+
+        // Función para actualizar el HTML según los inputs
+        function actualizarHTML() {
+            const correo = document.getElementById("correoCongreso").value || "congresolactancia2019@bcocongresos.com";
+            const web = document.getElementById("webCongreso").value || "www.congresolactancia2019.org";
+            
+            // Reemplazo de los valores en el código base
+            const htmlGenerado = baseHTML
+                .replace(/congresolactancia2019@bcocongresos\.com/g, correo)
+                .replace(/www\.congresolactancia2019\.org/g, web);
+            
+            document.getElementById("outputHTML").value = htmlGenerado;
+        }
+
+        // Actualizar el HTML cada vez que cambian los valores de los inputs
+        document.getElementById("correoCongreso").addEventListener("input", actualizarHTML);
+        document.getElementById("webCongreso").addEventListener("input", actualizarHTML);
+
+        // Copiar el código al portapapeles
+        function copiarCodigo() {
+            const output = document.getElementById("outputHTML");
+            output.select();
+            document.execCommand("copy");
+            alert("Código copiado al portapapeles.");
+        }
+
+        // Llamar a actualizarHTML al cargar la página para el valor inicial
+        actualizarHTML();
+    </script>
+</body>
+</html>
